@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Validando Formulario</title>
+</head>
+<script src="app.js"></script>
+<!--
+<script language="JavaScript">
+function validar()
+{   
+const form = document.querySelector("#formulario");
+const info = document.querySelector('#info');
+const expresiones = {
+	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
+	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+	password: /^.{4,12}$/, // 4 a 12 digitos.
+	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+	telefono: /^\d{7,14}$/ // 7 a 14 numeros.
+}
+
+const campos = [
+	nombre = false,
+	username = false,
+	password = false,
+	password2 = false,
+	email = false,
+	tlf = false
+]
+
+const enviarForm = (e) => {
+	e.preventDefault();
+	const {name, username, password, password2, email, tlf} = e.target;
+	if (expresiones.nombre.test(name.value)) {
+		campos.nombre = true;
+	} else {
+		name.nextElementSibling.innerHTML = `<span class="invalid">Campo invalido</span>`
+	}
+	if (expresiones.usuario.test(username.value)) {
+		campos.username = true;
+	} else {
+		username.nextElementSibling.innerHTML = `<span class="invalid">Campo invalido</span>`
+	}
+	if (expresiones.password.test(password.value)) {
+		campos.password = true;
+	} else {
+		password.nextElementSibling.innerHTML = `<span class="invalid">Campo invalido</span>`
+	}
+	if (expresiones.correo.test(email.value)) {
+		campos.email = true;
+	} else {
+		email.nextElementSibling.innerHTML = `<span class="invalid">Campo invalido</span>`
+	}
+	if (password2.value === password.value && expresiones.password.test(password.value)) {
+		campos.password2 = true;
+	} else {
+		password2.nextElementSibling.innerHTML = `<span class="invalid">Campo invalido</span>`
+	}
+	if (expresiones.telefono.test(tlf.value)) {
+		campos.tlf = true;
+	} else {
+		tlf.nextElementSibling.innerHTML = `<span class="invalid">Campo invalido</span>`
+	}
+
+	if (campos.nombre && campos.username && campos.password && campos.tlf && campos.email && campos.password2 === true) {
+		info.innerText = "Datos enviados"
+		
+	}else {
+		info.innerText = "Datos no enviados"
+		
+	}
+}
+form.addEventListener("submit", enviarForm);
+
+</script>
+-->
+<body>
+    <div class="container">
+        <h2>Formulario Registro</h2>
+    <form id="formulario"  method="post" action="incluir.php">
+        <label class="label">
+            Nombre
+            <input type="text" name="name" placeholder="Nombre">
+            <span></span>
+        </label>
+        <label>
+            Username
+            <input type="text" name="username" placeholder="Username">
+            <span></span>
+        </label>
+        <label>
+            E-mail
+            <input type="email" name="email" placeholder="corre@correo.xyz">
+            <span></span>
+        </label>
+        <label>
+            Password
+            <input type="password" name="password" placeholder="Password">
+            <span></span>
+        </label>
+        <label>
+            Repeat password
+            <input type="password" name="password2" placeholder="Repeat password">
+            <span></span>
+        </label>
+        <label>
+            Phone Number
+            <input type="tel" name="tlf" placeholder="9999999999">
+            <span></span>
+        </label>
+        <span id="info"></span>
+        <button id="btn">Enviar</button>
+    </form>
+    </div>
+	 <script src="app.js"></script>
+    <!--<script defer src="app.js"></script>
+	-->
+	
+</body>
+</html>
